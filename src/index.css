@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-foreground-primary: hsl(var(--foreground-primary));
+
+  --color-card: hsl(var(--card));
+}
+
+@layer base {
+  :root {
+    /* Light theme */
+    --background: 330 60% 98%; /* Slightly more saturation for a warmer pale blush */
+    --foreground: 330 45% 35%; /* Darker, richer mauve-pink for better text readability */
+    --card: 0 0% 100%; /* Keep pure white cards for clarity */
+
+    --primary: 330 80% 78%; /* Soft pastel rose with a bit more saturation */
+    --primary-foreground: 330 20% 22%; /* Dark enough for primary text, slightly warmer */
+
+    --border: 330 35% 90%; /* Soft pink border with slight saturation bump */
+  }
+
+  .dark {
+    /* Dark theme */
+    --background: 330 45% 12%; /* Deeper plum background for a richer dark mode */
+    --foreground: 330 25% 92%; /* Bright lavender text for high contrast */
+    --card: 330 55% 22%; /* Dark mauve cards with a bit more saturation */
+
+    --primary: 330 70% 70%; /* Muted rose, slightly less bright for dark mode */
+    --primary-foreground: 330 30% 92%; /* Lavender text on buttons, clearer contrast */
+
+    --border: 330 45% 30%; /* Dark pink border with a richer tone */
+  }
+}
+
+* {
+  @apply border-border;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply bg-background text-foreground transition-colors duration-300;
+  font-feature-settiongs: "rlig" 1, "calt" 1;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero .swiper-slide {
+  position: relative;
+}
+
+.hero .swiper-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Darker overlay */
+  z-index: 1;
+}
+
+.hero .swiper-slide .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  @apply text-white text-4xl md:text-6xl font-bold mb-4;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+.hero-subtitle {
+  @apply text-lg md:text-xl mb-8 max-w-xl mx-auto text-white opacity-90;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+
+.cta-button {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.cta-button:hover {
+  background-color: #ff3b3b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhance hover shadow */
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
