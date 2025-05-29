@@ -7,11 +7,11 @@ import { ArrowDown } from "lucide-react";
 
 export const HeroSection = () => {
     const slides = [
-        "/src/assets/adam-winger-WXmHwPcFamo-unsplash.jpg",
-        "/src/assets/benyamin-bohlouli-_C-S7LqxHPw-unsplash.jpg",
-        "/src/assets/greg-trowman-jsuWg7IXx1k-unsplash.jpg",
-        "/src/assets/guilherme-petri-PtOfbGkU3uI-unsplash.jpg",
-        "/src/assets/lindsay-cash-Md_DhaFsnCQ-unsplash.jpg"
+        "/assets/adam-winger-WXmHwPcFamo-unsplash.jpg",
+        "/assets/benyamin-bohlouli-_C-S7LqxHPw-unsplash.jpg",
+        "/assets/greg-trowman-jsuWg7IXx1k-unsplash.jpg",
+        "/assets/guilherme-petri-PtOfbGkU3uI-unsplash.jpg",
+        "/assets/lindsay-cash-Md_DhaFsnCQ-unsplash.jpg"
     ];
 
     return (
